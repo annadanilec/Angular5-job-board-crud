@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">{{ candidate.last_name }} {{ candidate.first_name }}</h1>
+    <dl class="list">
+      <dt>Skills</dt>
+      <dd>{{ candidate.skills }}</dd>
+      <dt>Years of experience</dt>
+      <dd>{{ candidate.years_of_experience }}</dd>
+      <dt>Current position</dt>
+      <dd>{{ candidate.current_position }}</dd>
+      <dt>Phone number</dt>
+      <dd>{{ candidate.phone_num }}</dd>
+      <dt>Email address</dt>
+      <dd>{{ candidate.email_address }}</dd>
+      <dt>Joined at</dt>
+      <dd>{{ candidate.createdAt | date:'fullDate'}}</dd>
+    </dl>
+    <div class="row">
+      <div class="col-md-12">
+        <a [routerLink]="['/candidate-edit', candidate.id]" class="btn btn-success">EDIT</a>
+        <button class="btn btn-danger" type="button" (click)="deleteCandidate(candidate.id)">DELETE</button>
+      </div>
+    </div>
+  </div>
+</div>

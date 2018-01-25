@@ -19,9 +19,20 @@
     "installMode": "lazy",
     "updateMode": "prefetch",
     "resources": {
-      "files": [
-        "/assets/**"
-      ]
+      "files": ["/assets/**"],
+      "urls": ["https://fonts.googleapis.com/**"]
     }
-  }]
+  }],
+  "dataGroups": [
+    {
+      "name": "tasks-users-api",
+      "urls": ["/tasks", "/users"],
+      "cacheConfig": {
+        "strategy": "freshness",
+        "maxSize": 20,
+        "maxAge": "1h",
+        "timeout": "5s"
+      }
+    }
+  ]
 }

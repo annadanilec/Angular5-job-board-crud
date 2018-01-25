@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>Offers List
+      </h3>
+      <input class="form-control search-bar" [(ngModel)]="searchItem" placeholder="Search for offers">
+      <table class="table bg-light">
+        <thead class="table-dark">
+          <tr>
+            <th>Title</th>
+            <th>Salary range</th>
+            <th>Position</th>
+            <th>Skills</th>
+            <th>Show details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let offer of offers | search : searchItem">
+            <td>{{ offer.title }}</td>
+            <td>{{ offer.salary_range }}</td>
+            <td>{{ offer.position_name }}</td>
+            <td>{{ offer.tags }}</td>
+            <td><a class="detail-button" [routerLink]="['/offer-details', offer.id]">Show Detail</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

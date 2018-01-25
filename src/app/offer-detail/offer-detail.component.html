@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">{{ offer.title }}</h1>
+    <dl class="list">
+        <dt>Position</dt>
+        <dd>{{ offer.position_name }}</dd>
+        <dt>Skills</dt>
+        <dd *ngFor="let tag of offer.tags">{{ tag }}</dd>
+        <dt>Company</dt>
+        <dd>{{ offer.company }}</dd>
+        <dt>Salary range</dt>
+        <dd>{{ offer.salary_range }}</dd>
+        <dt>Added</dt>
+        <dd>{{ offer.createdAt | date:'fullDate'}}</dd>
+      </dl>
+    <hr class="my-4">
+    <p>{{ offer.description }}</p>
+    <p class="lead">
+        <a [routerLink]="['/offer-edit', offer.id]" class="btn btn-success">EDIT</a>
+        <button class="btn btn-danger" type="button" (click)="deleteOffer(offer.id)">DELETE</button>
+    </p>
+  </div>
+</div>

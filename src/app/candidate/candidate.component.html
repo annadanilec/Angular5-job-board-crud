@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h3>Candidates List
+        <a [routerLink]="['/candidate-create']" class="btn btn-default btn-lg">
+          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+        </a>
+      </h3>
+      <input class="form-control  search-bar" [(ngModel)]="searchItem" placeholder="Search for candidates">
+      <table class="table bg-light">
+        <thead class="table-dark">
+          <tr>
+            <th>Name</th>
+            <th>Skills</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let candidate of candidates | search : searchItem">
+            <td>{{ candidate.first_name }} {{ candidate.last_name }}</td>
+            <td>{{ candidate.skills }}</td>
+            <td><a class="detail-button" [routerLink]="['/candidate-details', candidate.id]">Show Detail</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
