@@ -18,7 +18,6 @@ export class OfferDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getOfferDetail(this.route.snapshot.params['id']);
-    this.getOfferTags(this.route.snapshot.params['id']);
   }
 
   getOfferDetail(id) {
